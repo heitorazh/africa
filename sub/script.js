@@ -82,7 +82,7 @@ let graficoPib = new Chart(ctxPib, {
 // ==========================================
 // 3. CARREGAMENTO DO MAPA E CLIQUE
 // ==========================================
-fetch("./assets/africa.svg")
+fetch("./sub/assets/africa.svg")
     .then(res => res.text())
     .then(svg => {
         document.getElementById("svg-container").innerHTML = svg;
