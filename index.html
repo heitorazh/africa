@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beyond Africa Grup New Generation</title>
     <link rel="stylesheet" href="./sub/style.css?v=2">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -30,78 +31,134 @@
 
         <!-- Idiomas (opcional) -->
         <div class="language-selector">
-            <a href="#"><img src="imagens/br.png" alt="Português"></a>
-            <a href="#"><img src="imagens/us.png" alt="English"></a>
-            <a href="#"><img src="imagens/fr.png" alt="Francês"></a>
+            <a href="#" aria-label="Português"><span class="fi fi-br"></span></a>
+            <a href="#" aria-label="English"><span class="fi fi-us"></span></a>
+            <a href="#" aria-label="Français"><span class="fi fi-fr"></span></a>
         </div>
 
     </div>
 </header>
     <main>
+     <!-- ==========================================
+             HERO SECTION (CAPA FULL-SCREEN)
+             ========================================== -->
         <section id="home" class="hero-section">
-    <div class="hero-content">
-        <div class="hero-text">
-            <blockquote class="hero-quote">
-                The <strong>young</strong> of <strong> today</strong><br>
-                Are the <strong>leader</strong> to <strong>tomorrow</strong>.
-            </blockquote>
-            <p class="hero-author">Nelson Mandela</p>
-        </div>
+            
+            <!-- Imagem gigante ocupando 100% do fundo -->
+            <img src="./sub/imagens/Africa-Code-Week-Angola-Menos-Fios.jpg" alt="Jovens na África" class="hero-bg-img">
+            
+            <!-- Película escura em degradê para dar leitura e tom sério -->
+            <div class="hero-overlay"></div>
 
-        <div class="fotoafrica">  
-            <img src="./sub/imagens/Africa-Code-Week-Angola-Menos-Fios.jpg" alt="Jovens na África" class="img-jovens">
-        </div> 
-    </div>
-</section>
-
-        <section id="sobre-nos" class="section-padding">
-            <div class="container">
-                <h2>SOBRE NÓS</h2>
-                <div class="grid-text">
-                    <p>Aqui você insere o texto principal sobre o propósito do site, a união das ideias, histórico ou a missão do projeto. Mantenha parágrafos limpos e diretos para manter a elegância do modelo.</p>
-                    <p>Pode adicionar um segundo parágrafo destacando os pilares fundamentais, parcerias institucionais ou os valores que guiam esta iniciativa.</p>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <blockquote class="hero-quote">
+                        "The <strong>youth</strong> of <strong>today</strong><br>
+                        are the <strong>leaders</strong> of <strong>tomorrow</strong>."
+                    </blockquote>
+                    <p class="hero-author">Nelson Mandela</p>
                 </div>
             </div>
+            
         </section>
 
-        <section id="servicos" class="section-padding bg-light">
+  <section id="sobre-nos" class="section-padding">
+            <div class="container">
+                
+                <div class="about-wrapper">
+                    <!-- Lado Esquerdo: Título e Frase -->
+                    <div class="about-highlight">
+                        <h2>SOBRE NÓS</h2>
+                        <h3>Conectando o Brasil ao continente do futuro através da juventude e da inovação.</h3>
+                    </div>
+                    
+                    <!-- Lado Direito: Textos -->
+                    <div class="about-text">
+                        <p>A <strong>Beyond Africa Generation</strong> é uma iniciativa da Beyond Africa Group criada para fortalecer as conexões entre Brasil e África por meio da comunicação, da informação e da cooperação. Surgimos com o propósito de dialogar diretamente com a juventude africana, o grupo mais representativo do continente, cuja idade média é de apenas 19 anos.</p>
+                        
+                        <p>Como braço de comunicação, reunimos mais de 20 anos de experiência em relações internacionais. Transformamos essa expertise em conexões que impulsionam investimentos, inovação e desenvolvimento sustentável nas áreas de tecnologia, educação, saúde, infraestrutura, turismo e agronegócio.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+     <section id="servicos" class="section-padding bg-light">
             <div class="container">
                 <h2>SERVIÇOS</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h3>Pesquisa de Mercado</h3>
-                        <p>Descrição detalhada sobre análise de dados, tendências e contextualização para tomada de decisões.</p>
+                
+                <div class="services-list">
+                    
+                    <!-- Serviço 1 -->
+                    <div class="service-row">
+                        <div class="service-number">01</div>
+                        <div class="service-info">
+                            <h3>Pesquisa de Mercado</h3>
+                            <p>Realizamos estudos e análises estratégicas sobre os mercados brasileiro e africano, identificando oportunidades, tendências e desafios para apoiar empresas e organizações na tomada de decisões.</p>
+                        </div>
                     </div>
-                    <div class="service-card">
-                        <h3>Desenvolvimento de Negócios</h3>
-                        <p>Estratégias específicas para alcançar, manter ou expandir a atuação no cenário global.</p>
+
+                    <!-- Serviço 2 -->
+                    <div class="service-row">
+                        <div class="service-number">02</div>
+                        <div class="service-info">
+                            <h3>Desenvolvimento de Negócios</h3>
+                            <p>Conectamos empresas, investidores e instituições para criar parcerias estratégicas e desenvolver oportunidades de negócios entre Brasil e África, promovendo crescimento sustentável e expansão internacional.</p>
+                        </div>
                     </div>
-                    <div class="service-card">
-                        <h3>Intercâmbio Cultural</h3>
-                        <p>Programas de aproximação e interação global respeitando a diversidade de cada nação.</p>
+
+                    <!-- Serviço 3 -->
+                    <div class="service-row">
+                        <div class="service-number">03</div>
+                        <div class="service-info">
+                            <h3>Desenvolvimento Cultural</h3>
+                            <p>Promovemos iniciativas que fortalecem o intercâmbio cultural entre Brasil e África por meio de eventos, projetos, conteúdos e ações que valorizam a diversidade, aproximam sociedades e incentivam a cooperação entre as novas gerações.</p>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <section id="imprensa" class="section-padding">
+       <section id="parceiros-globais" class="section-ticker">
             <div class="container">
-                <h2>IMPRENSA</h2>
-                <div class="press-grid">
-                    <article class="press-card">
-                        <span class="press-source">Portal de Notícias A</span>
-                        <h3>Título da matéria importante ou destaque na mídia sobre o projeto</h3>
-                        <a href="#" target="_blank" class="btn-link">LEIA MAIS</a>
-                    </article>
-                    <article class="press-card">
-                        <span class="press-source">Revista Semanal B</span>
-                        <h3>Acordos de cooperação internacional ganham destaque este ano</h3>
-                        <a href="#" target="_blank" class="btn-link">LEIA MAIS</a>
-                    </article>
+                <div class="ticker-header">
+                    <h2>Empresas e organizações que confiam no nosso trabalho</h2>
+                    <p>Construímos relações com instituições respeitadas em diversos setores ao redor do mundo.</p>
+                </div>
+            </div>
+            
+            <div class="ticker-wrapper">
+                <div class="ticker-track">
+                    <!-- GRUPO 1 (As 10 empresas) -->
+                    <div class="ticker-item"><strong>LG Chem</strong> <span>• Coreia do Sul</span></div>
+                    <div class="ticker-item"><strong>DuPont</strong> <span>• Estados Unidos</span></div>
+                    <div class="ticker-item"><strong>Maxxis</strong> <span>• Taiwan</span></div>
+                    <div class="ticker-item"><strong>Poltrona Frau</strong> <span>• Itália</span></div>
+                    <div class="ticker-item"><strong>Tosaf</strong> <span>• Israel</span></div>
+                    <div class="ticker-item"><strong>BlueCube</strong> <span>• Reino Unido</span></div>
+                    <div class="ticker-item"><strong>TOG</strong> <span>• Brasil</span></div>
+                    <div class="ticker-item"><strong>Brazafric</strong> <span>• Quênia</span></div>
+                    <div class="ticker-item"><strong>Sheraton WTC</strong> <span>• Brasil</span></div>
+                    <div class="ticker-item"><strong>UNESCO</strong> <span>• Internacional</span></div>
+
+                    <!-- GRUPO 2 (Cópia exata para o loop infinito não quebrar) -->
+                    <div class="ticker-item"><strong>LG Chem</strong> <span>• Coreia do Sul</span></div>
+                    <div class="ticker-item"><strong>DuPont</strong> <span>• Estados Unidos</span></div>
+                    <div class="ticker-item"><strong>Maxxis</strong> <span>• Taiwan</span></div>
+                    <div class="ticker-item"><strong>Poltrona Frau</strong> <span>• Itália</span></div>
+                    <div class="ticker-item"><strong>Tosaf</strong> <span>• Israel</span></div>
+                    <div class="ticker-item"><strong>BlueCube</strong> <span>• Reino Unido</span></div>
+                    <div class="ticker-item"><strong>TOG</strong> <span>• Brasil</span></div>
+                    <div class="ticker-item"><strong>Brazafric</strong> <span>• Quênia</span></div>
+                    <div class="ticker-item"><strong>Sheraton WTC</strong> <span>• Brasil</span></div>
+                    <div class="ticker-item"><strong>UNESCO</strong> <span>• Internacional</span></div>
                 </div>
             </div>
         </section>
 
+                </div>
+            </div>
+        </section>
         <section id="parceiros" class="section-padding bg-light">
     <div class="container">
         <h2>NOSSO GRUPO</h2>

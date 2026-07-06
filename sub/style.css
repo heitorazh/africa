@@ -72,152 +72,431 @@ img, svg, canvas {
 
 .header-container {
     max-width: 1400px;
-    height: 85px;
+    height: 100px; /* Aumentado para acomodar o logo maior */
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo-img {
-    height: 60px;
+    height: 85px; /* Logo bem maior e mais imponente */
     width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05); /* Pequeno charme ao passar o mouse no logo */
 }
 
 .nav-menu ul {
     display: flex;
     list-style: none;
-    gap: 15px;
+    gap: 30px; /* Mais espaço para o risco não bater no botão do lado */
 }
 
 .nav-menu a {
     color: #333;
     text-decoration: none;
-    font-size: 13px; 
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    padding: 10px 15px;
-    border-radius: 25px;
+    padding: 5px 0; /* Removido o estilo de 'pílula' */
     transition: all 0.3s ease;
-    white-space: nowrap; /* MÁGICA: Impede o menu de amassar! */
+    white-space: nowrap;
+    position: relative; /* Necessário para o risco laranja funcionar */
+}
+
+/* O risco laranja escondido */
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0; /* Começa com 0 de largura */
+    height: 3px; /* Espessura do risco */
+    bottom: -4px; /* Distância do risco para a palavra */
+    left: 0;
+    background-color: #F58220;
+    transition: width 0.3s ease; /* Faz o risco deslizar suavemente */
+}
+
+/* O risco cresce e o texto pinta de laranja ao passar o mouse */
+.nav-menu a:hover::after {
+    width: 100%;
 }
 
 .nav-menu a:hover {
-    background-color: #F58220; 
-    color: #fff;
+    color: #F58220; 
 }
 
+/* Estilo das Novas Bandeiras */
 .language-selector {
     display: flex;
-    gap: 12px;
+    gap: 15px;
+    align-items: center;
 }
 
-.language-selector img {
-    width: 22px;
-    cursor: pointer;
-    transition: transform 0.2s;
+.language-selector a {
+    text-decoration: none;
+    font-size: 24px; /* Tamanho da bandeira */
+    transition: all 0.2s;
+    display: inline-block;
+    line-height: 1;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* Sombreado elegante */
 }
 
-.language-selector img:hover {
-    transform: scale(1.1);
+.language-selector a:hover {
+    transform: scale(1.15) translateY(-2px); /* Bandeira sobe um pouco */
+    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
 }
+
 /* =========================================
-   3. HERO SECTION (CAPA)
+   3. HERO SECTION (CAPA PREMIUM)
    ========================================= */
 .hero-section {
-    min-height: calc(100vh - 85px); /* Pega a altura da tela menos o menu */
-    background-color: #f4f4f4;
+    position: relative;
+    height: calc(100vh - 85px); /* Ocupa exatamente 100% da tela do usuário */
     display: flex;
-    align-items: center; /* ESSA É A MÁGICA QUE CENTRALIZA TUDO NA VERTICAL */
+    align-items: center;
+    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+    overflow: hidden; 
+}
+
+/* Configuração da Imagem de Fundo */
+.hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* A mágica para a imagem preencher tudo sem distorcer */
+    z-index: 1;
+}
+
+/* A película escura (Degradê: mais escuro na esquerda onde fica o texto) */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(15, 17, 21, 0.9) 0%, rgba(15, 17, 21, 0.4) 100%);
+    z-index: 2;
 }
 
 .hero-content {
-    display: flex;
+    position: relative;
+    z-index: 3; /* Garante que o texto fique acima da imagem e da película */
     width: 100%;
-}
-
-.hero-text {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
     padding: 0 40px;
 }
 
+.hero-text {
+    max-width: 800px;
+}
+
 .hero-quote {
-    font-size: 2rem;
-    color: #000;
-    text-align: center;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    font-weight: 400;
+    font-size: 3.8rem; /* Letra imponente */
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.hero-quote strong {
+    font-weight: 900;
+    color: #F58220; /* Laranja da marca */
 }
 
 .hero-author {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #000000;
-}
-
-.fotoafrica {
-    flex: 1;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #e0e0e0;
     display: flex;
-    align-items: center; /* Garante que a imagem também fique centralizada */
-    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
-.img-jovens {
-    width: 100%;
-    max-height: 80vh; /* Impede que a foto gigante "empurre" o site para baixo */
-    object-fit: cover;
+/* O traço laranja de design antes do nome do Mandela */
+.hero-author::before {
+    content: "";
     display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #F58220;
 }
-
 /* =========================================
    4. GRIDS (SERVIÇOS E IMPRENSA)
    ========================================= */
-.services-grid, .press-grid {
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 950px; /* Mantém o texto num tamanho ideal para leitura */
+    margin: 0 auto;
+}
+
+.service-row {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border-left: 4px solid #eaeaea; /* Borda cinza neutra padrão */
+    transition: all 0.4s ease;
+}
+
+.service-row:hover {
+    border-left: 6px solid #F58220; /* Borda laranja grossa ao passar o mouse */
+    transform: translateX(10px); /* O bloco dá um passo elegante para a direita */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.service-number {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #F58220;
+    opacity: 0.8; /* Número fica como uma "marca d'água" suave */
+    margin-right: 35px;
+    line-height: 1;
+    transition: all 0.4s ease;
+}
+
+.service-row:hover .service-number {
+    opacity: 1; /* O número acende forte quando passa o mouse */
+}
+
+.service-info h3 {
+    font-size: 1.35rem;
+    color: #111;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.service-info p {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+    text-align: justify;
+}
+
+/* Mantendo a configuração da Imprensa intacta */
+.press-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
-.service-card, .press-card {
+.press-card {
     background: #fff;
     padding: 30px;
     border: 1px solid #eee;
-    text-align: center;
+    text-align: left;
     transition: transform 0.3s;
+    border-radius: 12px;
 }
 
-.service-card:hover, .press-card:hover {
+.press-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.press-card {
-    text-align: left;
-}
-
 .press-source {
     font-size: 0.8rem;
-    color: #888;
+    color: #484646;
     text-transform: uppercase;
 }
-
-.btn-link {
-    display: inline-block;
-    margin-top: 15px;
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-    font-size: 0.9rem;
-    border-bottom: 2px solid #000;
+/* =========================================
+   X. PARCEIROS (LETREIRO INFINITO)
+   ========================================= */
+.section-ticker {
+    background-color: #f9f9f9; /* Fundo que combina com o resto do site */
+    padding: 80px 0;
+    overflow: hidden; /* Esconde o texto que sai da tela */
 }
 
+.ticker-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.ticker-header h2 {
+    font-size: 2rem;
+    color: #111;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.ticker-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* A Faixa Preta do Letreiro */
+.ticker-wrapper {
+    position: relative;
+    width: 100vw;
+    max-width: 100%;
+    padding: 25px 0;
+    background-color: #111; /* Cor super premium */
+    display: flex;
+    align-items: center;
+    border-top: 2px solid #F58220; /* Linha de detalhe em laranja */
+    border-bottom: 2px solid #F58220;
+}
+
+/* Criando um degradê nas bordas para o texto sumir suavemente */
+.ticker-wrapper::before,
+.ticker-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+}
+
+.ticker-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, #111 0%, transparent 100%);
+}
+
+.ticker-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, #111 0%, transparent 100%);
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-ticker 40s linear infinite; /* 40 segundos para dar a volta */
+}
+
+/* Pausa a animação se passar o mouse */
+.ticker-track:hover {
+    animation-play-state: paused;
+}
+
+.ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 40px;
+    color: #fff;
+    font-size: 1.5rem;
+    white-space: nowrap;
+}
+
+.ticker-item strong {
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.ticker-item span {
+    color: #F58220; /* O laranja dando o toque institucional */
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 4px;
+}
+
+/* O Motor da Animação */
+@keyframes scroll-ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Move exatamente a metade da faixa duplicada */
+}
+/* =========================================
+   X. SOBRE NÓS (DUAS COLUNAS LADO A LADO)
+   ========================================= */
+.about-wrapper {
+    display: flex;
+    flex-direction: row; /* Força ficar lado a lado no PC */
+    gap: 50px;
+    align-items: center;
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid #eaeaea;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.about-highlight {
+    flex: 1;
+    border-left: 6px solid #F58220; /* Linha laranja na ESQUERDA */
+    padding-left: 25px;
+}
+
+.about-highlight h2 {
+    text-align: left;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    color: #F58220;
+    letter-spacing: 2px;
+}
+
+.about-highlight h3 {
+    font-size: 1.8rem;
+    color: #111;
+    line-height: 1.4;
+    font-weight: 800;
+    margin: 0;
+}
+
+.about-text {
+    flex: 1.5;
+}
+
+.about-text p {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Regra embutida de segurança APENAS para o celular */
+@media (max-width: 992px) {
+    .about-wrapper {
+        flex-direction: column; /* Empilha no celular */
+        padding: 30px 20px;
+        gap: 25px;
+    }
+
+    .about-highlight {
+        border-left: none; /* Tira linha da esquerda */
+        border-bottom: 4px solid #F58220; /* Bota linha embaixo */
+        padding-left: 0;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+    
+    .about-highlight h2, 
+    .about-highlight h3 {
+        text-align: center; /* Centraliza tudo no celular */
+    }
+
+    .about-highlight h3 {
+        font-size: 1.5rem;
+    }
+}
 /* =========================================
    5. EQUIPE
    ========================================= */
@@ -437,6 +716,77 @@ img, svg, canvas {
     line-height: 1.6;
     font-weight: 500;
 }
+/* =========================================
+   X. EMPRESAS PARCEIRAS (DARK GRID)
+   ========================================= */
+.section-trust {
+    background-color: #ffffff; /* Fundo super escuro */
+    padding: 100px 0;
+    color: #fff;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.trust-header {
+    text-align: left;
+    margin-bottom: 50px;
+    max-width: 800px;
+}
+
+.trust-header h2 {
+    text-align: left;
+    color: #000000;
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: none; /* Tira o tudo maiúsculo para ficar igual à foto */
+    letter-spacing: -0.5px;
+}
+
+.trust-header p {
+    color: #8b949e; /* Cinza azulado elegante */
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
+
+/* O truque da Grade Conectada */
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Exatamente 5 colunas */
+    background-color: #21262d; /* Essa cor vai vazar pelo 'gap' virando as linhas */
+    gap: 1px; /* A espessura da linha divisória */
+    border: 1px solid #21262d; /* Borda ao redor de tudo */
+    border-radius: 8px; /* Cantos levemente arredondados */
+    overflow: hidden;
+}
+
+.trust-card {
+    background-color: #ffac05; /* Mesma cor do fundo da página */
+    padding: 60px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.trust-card:hover {
+    background-color: #fefeff; /* Dá uma leve clareada ao passar o mouse */
+}
+
+.trust-card h4 {
+    color: #000000;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+}
+
+.trust-card span {
+    color: #050505;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
 
 /* =========================================
    7. CONTATO E RODAPÉ
@@ -555,77 +905,91 @@ img, svg, canvas {
 /* =========================================
    8. MEDIA QUERIES (RESPONSIVIDADE MÁXIMA)
    ========================================= */
+
+/* Para Tablets e Celulares (telas até 992px) */
 @media (max-width: 992px) {
-    /* Menu e Header no Celular */
+    
+    /* 1. Cabeçalho e Navegação */
     .header-container {
         flex-direction: column !important;
-        text-align: center;
+        height: auto !important;
+        padding: 20px 15px !important;
         gap: 15px;
-        height: auto;
-        padding: 20px 15px;
-    }
-    
-    .nav-menu ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 0;
-        gap: 5px;
     }
     
     body {
-        padding-top: 180px; 
+        padding-top: 160px; /* Compensa o tamanho do menu empilhado */
+    }
+    
+    .nav-menu ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 0;
     }
 
-    /* O SEGREDO DO BURACO CINZA ESTÁ AQUI: */
+    /* 2. Hero Section Premium (Capa) */
     .hero-section {
-        height: auto !important;
-        min-height: auto !important; /* Desliga a altura forçada da tela */
+        height: calc(100vh - 160px) !important; /* Ajusta a altura da capa com o novo menu */
+        min-height: 400px;
     }
     
     .hero-content {
-        flex-direction: column !important;
+        padding: 0 20px !important;
         text-align: center;
     }
     
     .hero-text {
-        padding: 40px 20px;
+        align-items: center; /* Centraliza o texto no celular */
+        margin: 0 auto;
+    }
+    
+    .hero-quote {
+        font-size: 2.2rem !important; /* Reduz a fonte da citação */
+    }
+    
+    .hero-overlay {
+        /* O degradê vem de baixo para cima para garantir leitura no celular */
+        background: linear-gradient(to top, rgba(15, 17, 21, 0.95) 0%, rgba(15, 17, 21, 0.4) 100%) !important;
     }
 
-    /* Dá um limite para a imagem não ficar gigante e esticada no celular */
-    .fotoafrica {
-        width: 100%;
-        max-height: 400px; 
+    /* 3. Serviços (Lista) */
+    .service-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 25px 20px !important;
+    }
+    
+    .service-number {
+        margin-bottom: 15px !important;
+        font-size: 2.5rem !important;
     }
 
-    /* Força os Grids a virarem 1 coluna só */
-    .services-grid, 
-    .press-grid, 
-    .team-grid {
-        grid-template-columns: 1fr !important; 
+    /* 4. Equipe e Imprensa */
+    .team-grid, 
+    .press-grid {
+        grid-template-columns: 1fr !important; /* Força 1 coluna */
     }
 
-    /* Empilha o Mapa em cima e o Painel embaixo */
+    /* 5. Dashboard e Mapa Interativo */
     .dashboard-wrapper {
         flex-direction: column !important;
         padding: 15px !important;
         gap: 30px;
     }
-
-    /* Ocupa a largura total no celular */
+    
     .map-section, 
     .info-section {
         width: 100% !important;
         flex: none !important;
     }
-
-    /* Desliga o painel "grudento" para não quebrar a rolagem do celular */
+    
+    /* Desliga o painel "grudento" para não quebrar a rolagem vertical */
     .info-section {
         position: relative !important;
         top: 0 !important;
     }
-
-    /* Organiza os botões do mapa */
+    
     .blocos-filtros {
         display: flex;
         flex-direction: column;
@@ -638,9 +1002,27 @@ img, svg, canvas {
         padding: 12px;
     }
 
-    /* Transforma os campos do formulário em 1 coluna no celular */
+    /* 6. Letreiro (Ticker) e Parceiros (Trust Grid) */
+    .ticker-header {
+        padding: 0 20px;
+    }
+    
+    .ticker-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .ticker-item {
+        font-size: 1.2rem;
+        padding: 0 25px;
+    }
+    
+    .trust-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 colunas no tablet */
+    }
+
+    /* 7. Contato */
     .form-row {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 1fr !important; /* Empilha os campos Nome/Email */
     }
     
     .contact-wrapper {
@@ -648,16 +1030,4 @@ img, svg, canvas {
     }
 }
 
-@media (max-width: 480px) {
-    .stats-container {
-        grid-template-columns: 1fr; 
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-    
-    .hero-quote {
-        font-size: 1.5rem;
-    }
-}
+/* Para Celulares Menores (telas até 600px) */
