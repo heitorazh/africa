@@ -151,20 +151,20 @@ fetch("./assets/africa.svg")
                     element.style.fill = "#F58220";
                     paisAtivo = element;
 
-                    // Atualiza Textos (O future do país individual vem do data.js)
-                    document.getElementById("country-name").innerHTML = countries[country].name;
+                    const langAtual = localStorage.getItem('preferredLang') || 'pt';
+                    const nomeTraduzido = countries[country]['name_' + langAtual] || countries[country].name;
+                    const futureTraduzido = countries[country]['future_' + langAtual] || countries[country].future;
+
+                    document.getElementById("country-name").innerHTML = nomeTraduzido;
                     document.getElementById("population").innerHTML = countries[country].population;
                     document.getElementById("age").innerHTML = countries[country].age;
-                    document.getElementById("future").innerHTML = countries[country].future;
+                    document.getElementById("future").innerHTML = futureTraduzido;
 
-                    // Atualiza Conexão Brasil
                     chaveConexaoAtual = obterChaveConexaoBrasil(country);
-                    const langAtual = localStorage.getItem('preferredLang') || 'pt';
                     if (translations[langAtual] && translations[langAtual][chaveConexaoAtual]) {
                         document.getElementById("brazil-connection").innerHTML = translations[langAtual][chaveConexaoAtual];
                     }
 
-                    // Atualiza Gráficos
                     if (graficoPop && countries[country].chartData) {
                         graficoPop.data.datasets[0].data = countries[country].chartData;
                         graficoPop.update();
@@ -183,7 +183,7 @@ fetch("./assets/africa.svg")
 // ==========================================
 // 4. LÓGICA MATEMÁTICA DOS BLOCOS GEOPOLÍTICOS
 // ==========================================
-function destacarBloco(nomeBloco, paisesDoBloco) {
+function destacarBloco(nomeBloco, paisesDoBloco, btnElement) {
     if (typeof countries === 'undefined') return;
     
     if (paisesDoBloco === undefined) {
@@ -194,6 +194,9 @@ function destacarBloco(nomeBloco, paisesDoBloco) {
     if (paisesDoBloco === 'ALL') {
         paisesDoBloco = Object.keys(countries);
     }
+
+    document.querySelectorAll('.blocos-filtros button').forEach(b => b.classList.remove('ativo'));
+    if (btnElement) btnElement.classList.add('ativo');
 
     let popTotal = 0;
     let somaIdades = 0;
@@ -246,7 +249,6 @@ function destacarBloco(nomeBloco, paisesDoBloco) {
         somaPib[i] = parseFloat(somaPib[i].toFixed(1)); 
     }
 
-    // Puxa o idioma atual para formatar os dados dinamicamente
     const langAtual = localStorage.getItem('preferredLang') || 'pt';
     const t = translations[langAtual];
 
@@ -260,7 +262,6 @@ function destacarBloco(nomeBloco, paisesDoBloco) {
     document.getElementById("age").innerHTML = idadeMediaFinal + t.map_age_avg;
     document.getElementById("future").innerHTML = t.map_bloc_desc.replace('{n}', paisesDoBloco.length);
 
-    // Define a análise do Bloco na Conexão Brasil
     if (nomeBloco === 'SADC') chaveConexaoAtual = 'br_sadc';
     else if (nomeBloco === 'CEDEAO') chaveConexaoAtual = 'br_cedeao';
     else if (nomeBloco === 'EAC') chaveConexaoAtual = 'br_eac';
@@ -286,6 +287,7 @@ function resetarMapa() {
     if (typeof countries === 'undefined') return;
     
     paisAtivo = null;
+    document.querySelectorAll('.blocos-filtros button').forEach(b => b.classList.remove('ativo'));
 
     Object.keys(countries).forEach(sigla => {
         const elementoPais = document.getElementById(sigla);

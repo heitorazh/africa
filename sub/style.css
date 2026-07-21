@@ -573,6 +573,45 @@ img, svg, canvas {
     margin: 0;
 }
 /* =========================================
+   ESTILO DOS ÍCONES DE REDES SOCIAIS
+   ========================================= */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(245, 130, 32, 0.1);
+    color: #F58220;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon-link svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.social-icon-link:hover {
+    background-color: #F58220;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(245, 130, 32, 0.3);
+}
+
+.social-icon-link:hover svg {
+    transform: scale(1.1);
+}
+/* =========================================
    NOVO: BOX CONEXÃO BRASIL-ÁFRICA
    ========================================= */
 .brazil-box {
@@ -634,36 +673,72 @@ img, svg, canvas {
     display: block;
 }
 
+/* =========================================
+   CORREÇÃO: GRADE DE 2 COLUNAS PARA OS BOTÕES
+   ========================================= */
 .blocos-filtros {
-    text-align: center;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     margin-bottom: 20px;
-    padding: 10px;
 }
 
 .filtros-titulo {
-    font-weight: bold;
+    grid-column: span 2 !important;
+    font-size: 0.85rem;
+    font-weight: 700;
     color: #555;
-    margin-right: 15px;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
 .blocos-filtros button {
-    background-color: #fff;
+    padding: 10px 12px;
     border: 2px solid #F58220;
+    background: transparent;
     color: #F58220;
-    padding: 8px 16px;
-    margin: 0 5px 5px 0;
-    border-radius: 20px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
     cursor: pointer;
-    font-weight: bold;
     transition: all 0.3s ease;
-    display: inline-block;
+    width: 100%;
+    text-align: center;
 }
 
 .blocos-filtros button:hover {
-    background-color: #F58220;
-    color: #fff;
+    background: rgba(245, 130, 32, 0.1);
+    transform: translateY(-1px);
+}
+
+.blocos-filtros button.ativo {
+    background: #F58220 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(245, 130, 32, 0.3);
+}
+
+.blocos-filtros .btn-limpar {
+    grid-column: span 2 !important;
+    border-color: #d1d5db;
+    color: #4b5563;
+    background: #f9fafb;
+}
+
+.blocos-filtros .btn-limpar:hover {
+    background: #e5e7eb;
+    color: #1f2937;
+}
+/* =========================================
+   CORREÇÃO: EAC CENTRALIZADO NA GRADE
+   ========================================= */
+.blocos-filtros button.btn-centro {
+    grid-column: span 2 !important;
 }
 
 .btn-limpar {
