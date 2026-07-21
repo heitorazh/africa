@@ -151,7 +151,7 @@ fetch("./assets/africa.svg")
                     element.style.fill = "#F58220";
                     paisAtivo = element;
 
-                    // Atualiza Textos
+                    // Atualiza Textos (O future do país individual vem do data.js)
                     document.getElementById("country-name").innerHTML = countries[country].name;
                     document.getElementById("population").innerHTML = countries[country].population;
                     document.getElementById("age").innerHTML = countries[country].age;
@@ -191,7 +191,6 @@ function destacarBloco(nomeBloco, paisesDoBloco) {
         nomeBloco = "Região Selecionada";
     }
 
-    // Truque Inteligente para a AfCFTA: Se receber 'ALL', pega todos os países do banco!
     if (paisesDoBloco === 'ALL') {
         paisesDoBloco = Object.keys(countries);
     }
@@ -247,14 +246,19 @@ function destacarBloco(nomeBloco, paisesDoBloco) {
         somaPib[i] = parseFloat(somaPib[i].toFixed(1)); 
     }
 
-    let popTextoFinal = popTotal > 1000 
-        ? (popTotal / 1000).toFixed(2).replace('.', ',') + " bilhões" 
-        : popTotal.toFixed(1).replace('.', ',') + " milhões";
+    // Puxa o idioma atual para formatar os dados dinamicamente
+    const langAtual = localStorage.getItem('preferredLang') || 'pt';
+    const t = translations[langAtual];
 
-    document.getElementById("country-name").innerHTML = "🌍 Bloco: " + nomeBloco;
+    let separador = langAtual === 'en' ? '.' : ',';
+    let popTextoFinal = popTotal > 1000 
+        ? (popTotal / 1000).toFixed(2).replace('.', separador) + t.map_billion 
+        : popTotal.toFixed(1).replace('.', separador) + t.map_million;
+
+    document.getElementById("country-name").innerHTML = t.map_bloc_prefix + nomeBloco;
     document.getElementById("population").innerHTML = popTextoFinal;
-    document.getElementById("age").innerHTML = idadeMediaFinal + " anos (média)";
-    document.getElementById("future").innerHTML = "Desempenho consolidado dos " + paisesDoBloco.length + " países membros.";
+    document.getElementById("age").innerHTML = idadeMediaFinal + t.map_age_avg;
+    document.getElementById("future").innerHTML = t.map_bloc_desc.replace('{n}', paisesDoBloco.length);
 
     // Define a análise do Bloco na Conexão Brasil
     if (nomeBloco === 'SADC') chaveConexaoAtual = 'br_sadc';
@@ -264,9 +268,8 @@ function destacarBloco(nomeBloco, paisesDoBloco) {
     else if (nomeBloco === 'AfCFTA' || nomeBloco === 'ZCLC') chaveConexaoAtual = 'br_afcfta';
     else chaveConexaoAtual = 'br_default';
 
-    const langAtual = localStorage.getItem('preferredLang') || 'pt';
-    if (translations[langAtual] && translations[langAtual][chaveConexaoAtual]) {
-        document.getElementById("brazil-connection").innerHTML = translations[langAtual][chaveConexaoAtual];
+    if (t && t[chaveConexaoAtual]) {
+        document.getElementById("brazil-connection").innerHTML = t[chaveConexaoAtual];
     }
 
     if (graficoPop) {
@@ -293,15 +296,17 @@ function resetarMapa() {
         }
     });
 
-    document.getElementById("country-name").innerHTML = "Passe o mouse ou clique";
+    const langAtual = localStorage.getItem('preferredLang') || 'pt';
+    const t = translations[langAtual];
+
+    document.getElementById("country-name").innerHTML = t.map_hover;
     document.getElementById("population").innerHTML = "—";
     document.getElementById("age").innerHTML = "—";
-    document.getElementById("future").innerHTML = "Selecione um país ou bloco para visualizar os dados.";
+    document.getElementById("future").innerHTML = t.map_desc;
     
     chaveConexaoAtual = 'map_brazil_desc';
-    const langAtual = localStorage.getItem('preferredLang') || 'pt';
-    if (translations[langAtual] && translations[langAtual][chaveConexaoAtual]) {
-        document.getElementById("brazil-connection").innerHTML = translations[langAtual][chaveConexaoAtual];
+    if (t && t[chaveConexaoAtual]) {
+        document.getElementById("brazil-connection").innerHTML = t[chaveConexaoAtual];
     }
 
     if (graficoPop) {
@@ -408,7 +413,6 @@ const translations = {
         map_age: "Idade Média",
         map_perspective: "Perspectiva",
         map_desc: "Selecione um país ou bloco para visualizar os dados e projeções econômicas da região.",
-        // 👉 TRADUÇÕES DA CONEXÃO BRASIL (PT)
         map_brazil_title: "Conexão Brasil-África",
         map_brazil_desc: "Selecione uma região para descobrir os laços diplomáticos, comerciais e culturais com o Brasil.",
         br_sadc: "Forte cooperação em mineração, energia e infraestrutura, liderada pela diplomacia com a África do Sul (BRICS+), além de laços históricos e comerciais com Moçambique e Angola.",
@@ -432,7 +436,12 @@ const translations = {
         chart_pop_ds0: "País / Bloco",
         chart_pop_ds1: "Média Mundial",
         chart_pib_title: "Evolução do PIB (Bilhões de Dólares)",
-        chart_pib_ds0: "PIB (Bilhões US$)"
+        chart_pib_ds0: "PIB (Bilhões US$)",
+        map_bloc_prefix: "🌍 Bloco: ",
+        map_bloc_desc: "Desempenho consolidado dos {n} países membros.",
+        map_age_avg: " anos (média)",
+        map_billion: " bilhões",
+        map_million: " milhões"
     },
     en: {
         nav_about: "ABOUT US",
@@ -474,7 +483,6 @@ const translations = {
         map_age: "Average Age",
         map_perspective: "Perspective",
         map_desc: "Select a country or bloc to view regional data and economic projections.",
-        // 👉 TRADUÇÕES DA CONEXÃO BRASIL (EN)
         map_brazil_title: "Brazil-Africa Connection",
         map_brazil_desc: "Select a region to discover diplomatic, commercial, and cultural ties with Brazil.",
         br_sadc: "Strong cooperation in mining, energy, and infrastructure, led by diplomacy with South Africa (BRICS+), alongside historic and commercial ties with Mozambique and Angola.",
@@ -498,7 +506,12 @@ const translations = {
         chart_pop_ds0: "Country / Bloc",
         chart_pop_ds1: "World Average",
         chart_pib_title: "GDP Evolution (Billions USD)",
-        chart_pib_ds0: "GDP (Billions USD)"
+        chart_pib_ds0: "GDP (Billions USD)",
+        map_bloc_prefix: "🌍 Bloc: ",
+        map_bloc_desc: "Consolidated performance of the {n} member countries.",
+        map_age_avg: " years (average)",
+        map_billion: " billion",
+        map_million: " million"
     },
     fr: {
         nav_about: "À PROPOS",
@@ -540,7 +553,6 @@ const translations = {
         map_age: "Âge Moyen",
         map_perspective: "Perspective",
         map_desc: "Sélectionnez un pays ou un bloc pour afficher les données et projections économiques régionales.",
-        // 👉 TRADUÇÕES DA CONEXÃO BRASIL (FR)
         map_brazil_title: "Connexion Brésil-Afrique",
         map_brazil_desc: "Sélectionnez une région pour découvrir les liens diplomatiques, commerciaux et culturels avec le Brésil.",
         br_sadc: "Forte coopération dans les mines, l'énergie et les infrastructures, menée par la diplomatie avec l'Afrique du Sud (BRICS+), ainsi que des liens historiques avec le Mozambique et l'Angola.",
@@ -564,7 +576,12 @@ const translations = {
         chart_pop_ds0: "Pays / Bloc",
         chart_pop_ds1: "Moyenne Mondiale",
         chart_pib_title: "Évolution du PIB (Milliards USD)",
-        chart_pib_ds0: "PIB (Milliards USD)"
+        chart_pib_ds0: "PIB (Milliards USD)",
+        map_bloc_prefix: "🌍 Bloc: ",
+        map_bloc_desc: "Performance consolidée des {n} pays membres.",
+        map_age_avg: " ans (moyenne)",
+        map_billion: " milliards",
+        map_million: " millions"
     }
 };
 
@@ -605,6 +622,8 @@ function changeLanguage(lang) {
             btn.style.transform = 'scale(1)';
         }
     });
+
+    if (typeof resetarMapa === 'function') resetarMapa();
 }
 
 document.addEventListener('DOMContentLoaded', () => {

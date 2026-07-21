@@ -1,11 +1,16 @@
 const countries = {
-    AO: {
-        name: "🇦🇴 Angola",
-        population: "36,6 milhões",
-        age: "16 anos",
-        future: "Busca por diversificação econômica além do petróleo e forte urbanização.",
-        chartData: [47.5, 46.2, 44.1, 41.0, 38.2, 35.5, 33.0, 30.2], // Taxa de Natalidade
-        pibData: [9.1, 35.3, 83.8, 116.2, 53.6, 93.8, 125.0, 150.5]  // PIB (Bilhões US$)
+   AO: {
+        name: "Angola",
+        population: "34.5 milhões",
+        age: "16.7",
+        // Texto em Português
+        future: "Necessidade imperativa de diversificação da economia petrolífera para agricultura e construção.",
+        // NOVO: Texto em Inglês
+        future_en: "Imperative need to diversify the oil-based economy towards agriculture and construction.",
+        // NOVO: Texto em Francês
+        future_fr: "Nécessité impérative de diversifier l'économie basée sur le pétrole vers l'agriculture et la construction.",
+        chartData: [46.5, 44.2, 42.1, 40.0, 38.5, 37.1, 35.8, 34.5],
+        pibData: [9.1, 28.2, 82.5, 116.2, 58.4, 110.0, 125.0, 140.0]
     },
     BI: {
         name: "🇧🇮 Burundi",
