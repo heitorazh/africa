@@ -502,10 +502,10 @@ img, svg, canvas {
    ========================================= */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* MÁGICA: Força 3 colunas exatas */
+    grid-template-columns: repeat(3, 1fr); /* Força 3 colunas exatas no PC */
     gap: 40px;
     margin-top: 50px;
-    max-width: 1050px; /* Limita a largura para ficar centralizado */
+    max-width: 1050px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -519,37 +519,78 @@ img, svg, canvas {
     padding: 30px 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Garante que todos os cartões da linha tenham a mesma altura */
+    justify-content: flex-start;
 }
 
+/* O cartão "levanta" e ganha uma sombra mais definida ao passar o mouse */
 .team-member:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
 }
 
 .member-photo {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     border: 4px solid #f4f4f4;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease;
+}
+
+/* Pequeno charme extra: a foto dá um leve zoom ao passar o mouse no cartão */
+.team-member:hover .member-photo {
+    transform: scale(1.03);
 }
 
 .member-name {
     font-size: 1.15rem;
     color: #111;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
     text-transform: uppercase;
     font-weight: 800;
     letter-spacing: 0.5px;
+}
+
+/* Cargo em Laranja Institucional e Espaçado */
+.member-role {
+    font-size: 0.82rem;
+    color: #F58220;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+    display: block;
 }
 
 .member-bio {
     font-size: 0.9rem;
     color: #666;
     line-height: 1.6;
+    margin: 0;
+}
+/* =========================================
+   NOVO: BOX CONEXÃO BRASIL-ÁFRICA
+   ========================================= */
+.brazil-box {
+    background: linear-gradient(135deg, #fdfbf7 0%, #fff9f2 100%);
+    border: 1px solid #fce3ce;
+    border-left: 4px solid #F58220;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    box-shadow: 0 4px 12px rgba(245, 130, 32, 0.05);
+    transition: all 0.3s ease;
 }
 
+.brazil-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(245, 130, 32, 0.12);
+}
 /* =========================================
    6. MAPA INTERATIVO E DASHBOARD EXECUTIVO
    ========================================= */
@@ -901,7 +942,36 @@ img, svg, canvas {
     flex-direction: column;
     gap: 10px;
 }
+/* =========================================
+   MENSAGENS DE FEEDBACK (JAVASCRIPT)
+   ========================================= */
+.feedback-msg {
+    display: none; /* Começa escondido */
+    padding: 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-align: center;
+    margin-top: 15px;
+    animation: fadeIn 0.4s ease;
+}
 
+.feedback-msg.sucesso {
+    background-color: #e8f7ee;
+    color: #12793d;
+    border: 1px solid #c2ebd1;
+}
+
+.feedback-msg.erro {
+    background-color: #fdeeee;
+    color: #b71c1c;
+    border: 1px solid #f8c9c9;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 /* =========================================
    8. MEDIA QUERIES (RESPONSIVIDADE MÁXIMA)
    ========================================= */

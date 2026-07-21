@@ -3,135 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyond Africa Grup New Generation</title>
-    <link rel="stylesheet" href="./sub/style.css?v=2">
+    <title>Beyond Africa Group New Generation</title>
+    <link rel="stylesheet" href="./sub/style.css?v=4">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-  <header class="main-header" id="header">
-    <div class="header-container">
+    <header class="main-header" id="header">
+        <div class="header-container">
 
-        <!-- Logo -->
-        <a href="#home" class="logo">
-            <img src="./sub/imagens/GEN-removebg-preview.png" alt="Logo do projeto" class="logo-img">
-        </a>
+            <!-- Logo -->
+            <a href="#home" class="logo">
+                <img src="./sub/imagens/GEN-removebg-preview.png" alt="Logo do projeto" class="logo-img">
+            </a>
 
-        <!-- Menu -->
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="#sobre-nos">SOBRE NÓS</a></li>
-                <li><a href="#servicos">SERVIÇOS</a></li>
-                <li><a href="#imprensa">IMPRENSA</a></li>
-                <li><a href="#parceiros">NOSSO GRUPO</a></li>
-                <li><a href="#contato">CONTATO</a></li>
-            </ul>
-        </nav>
+            <!-- Menu (Com etiquetas de tradução) -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#sobre-nos" data-i18n="nav_about">SOBRE NÓS</a></li>
+                    <li><a href="#servicos" data-i18n="nav_services">SERVIÇOS</a></li>
+                    <li><a href="#parceiros-globais" data-i18n="nav_press">IMPRENSA</a></li>
+                    <li><a href="#equipe" data-i18n="nav_team">NOSSO GRUPO</a></li>
+                    <li><a href="#contato" data-i18n="nav_contact">CONTATO</a></li>
+                </ul>
+            </nav>
 
-        <!-- Idiomas (opcional) -->
-        <div class="language-selector">
-            <a href="#" aria-label="Português"><span class="fi fi-br"></span></a>
-            <a href="#" aria-label="English"><span class="fi fi-us"></span></a>
-            <a href="#" aria-label="Français"><span class="fi fi-fr"></span></a>
+            <!-- Idiomas com atributos data-lang -->
+            <div class="language-selector">
+                <a href="#" data-lang="pt" aria-label="Português"><span class="fi fi-br"></span></a>
+                <a href="#" data-lang="en" aria-label="English"><span class="fi fi-us"></span></a>
+                <a href="#" data-lang="fr" aria-label="Français"><span class="fi fi-fr"></span></a>
+            </div>
+
         </div>
+    </header>
 
-    </div>
-</header>
     <main>
-     <!-- ==========================================
+        <!-- ==========================================
              HERO SECTION (CAPA FULL-SCREEN)
              ========================================== -->
         <section id="home" class="hero-section">
-            
-            <!-- Imagem gigante ocupando 100% do fundo -->
             <img src="./sub/imagens/Africa-Code-Week-Angola-Menos-Fios.jpg" alt="Jovens na África" class="hero-bg-img">
-            
-            <!-- Película escura em degradê para dar leitura e tom sério -->
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
                 <div class="hero-text">
-                    <blockquote class="hero-quote">
-                        "The <strong>youth</strong> of <strong>today</strong><br>
-                        are the <strong>leaders</strong> of <strong>tomorrow</strong>."
+                    <blockquote class="hero-quote" data-i18n="hero_quote">
+                        "Os <strong>jovens</strong> devem estar na <strong>linha de frente</strong><br>
+                        da <strong>mudança</strong> e da <strong>inovação</strong> globais."
                     </blockquote>
-                    <p class="hero-author">Nelson Mandela</p>
+                    <p class="hero-author" data-i18n="hero_author">Ban Ki-moon, ex-Secretário-Geral da ONU</p>
                 </div>
             </div>
-            
         </section>
 
- <section id="sobre-nos" class="section-padding">
+        <!-- ==========================================
+             SOBRE NÓS
+             ========================================== -->
+        <section id="sobre-nos" class="section-padding">
             <div class="container">
-                
                 <div class="about-wrapper">
-                    <!-- Lado Esquerdo: Título e Frase -->
                     <div class="about-highlight">
-                        <h2>SOBRE NÓS</h2>
-                        <h3>Conectando o Brasil ao continente do futuro através da juventude e da inovação.</h3>
+                        <h2 data-i18n="about_title">SOBRE NÓS</h2>
+                        <h3 data-i18n="about_subtitle">Conectando o Brasil ao continente do futuro através da juventude e da inovação.</h3>
                     </div>
                     
-                    <!-- Lado Direito: Textos -->
                     <div class="about-text">
-                        <p>A <strong>Beyond Africa Generation</strong> é uma iniciativa da Beyond Africa Group para fortalecer as conexões entre o Brasil e África por meio da comunicação e informação.</p>
-                        
-                        <p>Surgimos com o propósito de dialogar com a juventude africana, o grupo mais populoso do continente africano, cuja média de idade é, assim como a de nossos integrantes, 19 anos.</p>
-                        
-                        <p>Acreditamos que o diálogo é capaz de construir as pontes necessárias para a integração, afirmando nosso compromisso em incentivar as novas gerações.</p>
+                        <p data-i18n="about_p1">A <strong>Beyond Africa Generation</strong> é uma iniciativa da Beyond Africa Group para fortalecer as conexões entre o Brasil e África por meio da comunicação e informação.</p>
+                        <p data-i18n="about_p2">Surgimos com o propósito de dialogar com a juventude africana, o grupo mais populoso do continente africano, cuja média de idade é, assim como a de nossos integrantes, 19 anos.</p>
+                        <p data-i18n="about_p3">Acreditamos que o diálogo é capaz de construir as pontes necessárias para a integração, afirmando nosso compromisso em incentivar as novas gerações.</p>
                     </div>
                 </div>
-                
             </div>
         </section>
-     <section id="servicos" class="section-padding bg-light">
+
+        <!-- ==========================================
+             SERVIÇOS
+             ========================================== -->
+        <section id="servicos" class="section-padding bg-light">
             <div class="container">
-                <h2>SERVIÇOS</h2>
+                <h2 data-i18n="services_title">SERVIÇOS</h2>
                 
                 <div class="services-list">
-                    
-                    <!-- Serviço 1 -->
                     <div class="service-row">
                         <div class="service-number">01</div>
                         <div class="service-info">
-                            <h3>Pesquisa de Mercado</h3>
-                            <p>Realizamos estudos e análises estratégicas sobre os mercados brasileiro e africano, identificando oportunidades, tendências e desafios para apoiar empresas e organizações na tomada de decisões.</p>
+                            <h3 data-i18n="s1_title">Pesquisa de Mercado</h3>
+                            <p data-i18n="s1_desc">Realizamos estudos e análises estratégicas sobre os mercados brasileiro e africano, identificando oportunidades, tendências e desafios para apoiar empresas e organizações na tomada de decisões.</p>
                         </div>
                     </div>
 
-                    <!-- Serviço 2 -->
                     <div class="service-row">
                         <div class="service-number">02</div>
                         <div class="service-info">
-                            <h3>Desenvolvimento de Negócios</h3>
-                            <p>Conectamos empresas, investidores e instituições para criar parcerias estratégicas e desenvolver oportunidades de negócios entre Brasil e África, promovendo crescimento sustentável e expansão internacional.</p>
+                            <h3 data-i18n="s2_title">Desenvolvimento de Negócios</h3>
+                            <p data-i18n="s2_desc">Conectamos empresas, investidores e instituições para criar parcerias estratégicas e desenvolver oportunidades de negócios entre Brasil e África, promovendo crescimento sustentável e expansão internacional.</p>
                         </div>
                     </div>
 
-                    <!-- Serviço 3 -->
                     <div class="service-row">
                         <div class="service-number">03</div>
                         <div class="service-info">
-                            <h3>Desenvolvimento Cultural</h3>
-                            <p>Promovemos iniciativas que fortalecem o intercâmbio cultural entre Brasil e África por meio de eventos, projetos, conteúdos e ações que valorizam a diversidade, aproximam sociedades e incentivam a cooperação entre as novas gerações.</p>
+                            <h3 data-i18n="s3_title">Desenvolvimento Cultural</h3>
+                            <p data-i18n="s3_desc">Promovemos iniciativas que fortalecem o intercâmbio cultural entre Brasil e África por meio de eventos, projetos, conteúdos e ações que valorizam a diversidade, aproximam sociedades e incentivam a cooperação entre as novas gerações.</p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-       <section id="parceiros-globais" class="section-ticker">
+        <!-- ==========================================
+             PARCEIROS GLOBAIS (LETREIRO ANIMADO)
+             ========================================== -->
+        <section id="parceiros-globais" class="section-ticker">
             <div class="container">
                 <div class="ticker-header">
-                    <h2>Empresas e organizações que confiam no nosso trabalho</h2>
-                    <p>Construímos relações com instituições respeitadas em diversos setores ao redor do mundo.</p>
+                    <h2 data-i18n="ticker_title">Empresas e organizações que confiam no nosso trabalho</h2>
+                    <p data-i18n="ticker_desc">Construímos relações com instituições respeitadas em diversos setores ao redor do mundo.</p>
                 </div>
             </div>
             
             <div class="ticker-wrapper">
                 <div class="ticker-track">
-                    <!-- GRUPO 1 (As 10 empresas) -->
+                    <!-- GRUPO 1 -->
                     <div class="ticker-item"><strong>LG Chem</strong> <span>• Coreia do Sul</span></div>
                     <div class="ticker-item"><strong>DuPont</strong> <span>• Estados Unidos</span></div>
                     <div class="ticker-item"><strong>Maxxis</strong> <span>• Taiwan</span></div>
@@ -143,7 +138,7 @@
                     <div class="ticker-item"><strong>Sheraton WTC</strong> <span>• Brasil</span></div>
                     <div class="ticker-item"><strong>UNESCO</strong> <span>• Internacional</span></div>
 
-                    <!-- GRUPO 2 (Cópia exata para o loop infinito não quebrar) -->
+                    <!-- GRUPO 2 -->
                     <div class="ticker-item"><strong>LG Chem</strong> <span>• Coreia do Sul</span></div>
                     <div class="ticker-item"><strong>DuPont</strong> <span>• Estados Unidos</span></div>
                     <div class="ticker-item"><strong>Maxxis</strong> <span>• Taiwan</span></div>
@@ -158,168 +153,186 @@
             </div>
         </section>
 
+        <!-- ==========================================
+             EQUIPE (NOSSO GRUPO)
+             ========================================== -->
+        <section id="equipe" class="section-padding">
+            <div class="container">
+                <h2 data-i18n="team_title">NOSSO GRUPO</h2>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="./sub/imagens/paulopan.jpeg" alt="Paulo Pan" class="member-photo">
+                        <h4 class="member-name">Paulo Pan</h4>
+                        <span class="member-role">CEO & Advisor</span>
+                        <p class="member-bio" data-i18n="bio_paulo">Especialista em relações internacionais e estratégia global de negócios.</p>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="./sub/imagens/ellen larissa.jpeg" alt="Ellen Santana" class="member-photo">
+                        <h4 class="member-name">Ellen Santana</h4>
+                        <span class="member-role">Co-Founder</span>
+                        <p class="member-bio" data-i18n="bio_ellen">Lidera as iniciativas de cooperação jovem e desenvolvimento institucional.</p>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="./sub/imagens/heitor.png" alt="Heitor Oliveira Lima" class="member-photo">
+                        <h4 class="member-name">Heitor Oliveira Lima</h4>
+                        <span class="member-role" data-i18n="role_heitor">Analista de Relações Institucionais</span>
+                        <p class="member-bio" data-i18n="bio_heitor">Focado em desenvolvimento econômico, políticas públicas e parcerias estratégicas entre Brasil e África.</p>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="./sub/imagens/bia.jpeg" alt="Beatriz Afonso" class="member-photo">
+                        <h4 class="member-name">Beatriz Afonso</h4>
+                        <span class="member-role" data-i18n="role_bia">Analista de Pesquisa e Projetos</span>
+                        <p class="member-bio" data-i18n="bio_bia">Responsável pelo mapeamento de dados socioeconômicos e desenvolvimento de conteúdos acadêmicos.</p>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="./sub/imagens/isa.jpeg" alt="Isabela Torres" class="member-photo">
+                        <h4 class="member-name">Isabela Torres</h4>
+                        <span class="member-role" data-i18n="role_isa">Analista de Cooperação Cultural</span>
+                        <p class="member-bio" data-i18n="bio_isa">Atua no intercâmbio de iniciativas socioeducativas e na aproximação entre sociedades jovens.</p>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="./sub/imagens/camilly.jpeg" alt="Camilly Nogueira" class="member-photo">
+                        <h4 class="member-name">Camilly Nogueira</h4>
+                        <span class="member-role" data-i18n="role_camilly">Analista de Comunicação Estratégica</span>
+                        <p class="member-bio" data-i18n="bio_camilly">Focada na articulação de mídia, difusão de informação e impacto social dos projetos do grupo.</p>
+                    </div>
                 </div>
             </div>
         </section>
-        <section id="parceiros" class="section-padding bg-light">
-    <div class="container">
-        <h2>NOSSO GRUPO</h2>
-        <div class="team-grid">
-            <div class="team-member">
-                <img src="./sub/imagens/paulopan.jpeg" alt="Foto do Participante 4" class="member-photo">
-                <h3 class="member-name">Paulo Pan</h3>
-                <p class="member-bio">Uma breve biografia descrevendo a especialidade, o papel no grupo ou a experiência dessa pessoa.</p>
-            </div>
-            <div class="team-member">
-                <img src="./sub/imagens/ellen larissa.jpeg" alt="Foto do Participante 4" class="member-photo">
-                <h3 class="member-name">Ellen Santana</h3>
-                <p class="member-bio">Uma breve biografia descrevendo a especialidade, o papel no grupo ou a experiência dessa pessoa.</p>
-            </div>
-            <div class="team-member">
-                <img src="./sub/imagens/heitor.jpeg" alt="Foto do Participante 1" class="member-photo">
-                <h3 class="member-name">Heitor Oliveira Lima</h3>
-                <p class="member-bio">Uma breve biografia descrevendo a especialidade, o papel no grupo ou a experiência dessa pessoa.</p>
-            </div>
 
-            <div class="team-member">
-                <img src="./sub/imagens/bia.jpeg" alt="Foto do Participante 2" class="member-photo">
-                <h3 class="member-name">Beatriz Afonso</h3>
-                <p class="member-bio">Uma breve biografia descrevendo a especialidade, o papel no grupo ou a experiência dessa pessoa.</p>
-            </div>
-
-            <div class="team-member">
-                <img src="./sub/imagens/isa.jpeg" alt="Foto do Participante 3" class="member-photo">
-                <h3 class="member-name"> Isabela Torres</h3>
-                <p class="member-bio">Uma breve biografia descrevendo a especialidade, o papel no grupo ou a experiência dessa pessoa.</p>
-            </div>
-
-            <div class="team-member">
-                <img src="./sub/imagens/camilly.jpeg" alt="Foto do Participante 4" class="member-photo">
-                <h3 class="member-name">Camilly Nogueira</h3>
-                <p class="member-bio">Uma breve biografia descrevendo a especialidade, o papel no grupo ou a experiência dessa pessoa.</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section id="africa-map">
-    <!-- Envolvemos o Mapa e o Painel dentro desta nova div responsiva -->
-    <div class="dashboard-wrapper">
-        
-        <!-- LADO ESQUERDO: Mapa e Botões -->
-        <div class="map-section">
-            <div class="blocos-filtros">
-                <span class="filtros-titulo">Destacar Blocos:</span>
-                <!-- SADC: Comunidade de Desenvolvimento da África Austral -->
-                <button onclick="destacarBloco('SADC', ['ZA','AO','BW','MZ','NA','ZM','ZW','MW','LS','SZ','MG','CD','TZ'])">SADC</button>
+        <!-- ==========================================
+             MAPA INTERATIVO E DASHBOARD EXECUTIVO
+             ========================================== -->
+        <section id="africa-map" class="section-padding bg-light">
+            <div class="dashboard-wrapper">
                 
-                <!-- CEDEAO: Comunidade Econômica dos Estados da África Ocidental -->
-                <button onclick="destacarBloco('CEDEAO', ['NG','GH','CI','SN','ML','NE','BF','TG','BJ','LR','SL','GN','GW','GM'])">CEDEAO</button>
-                
-                <!-- EAC: Comunidade da África Oriental -->
-                <button onclick="destacarBloco('EAC', ['KE','TZ','UG','RW','BI','SS','CD','SO'])">EAC</button>
-                
-                <button onclick="resetarMapa()" class="btn-limpar">Limpar</button>
-            </div>
+                <!-- Lado Esquerdo: Mapa e Botões -->
+                <div class="map-section">
+                    <div class="blocos-filtros">
+                        <span class="filtros-titulo" data-i18n="map_filter_title">Destacar Blocos:</span>
+                        
+                        <!-- Blocos Geopolíticos Globais -->
+                        <button onclick="destacarBloco('BRICS+', ['ZA','EG','ET'])">BRICS+</button>
+                        <button onclick="destacarBloco('AfCFTA', 'ALL')">AfCFTA / ZCLC</button>
+                        
+                        <!-- Blocos Regionais Econômicos -->
+                        <button onclick="destacarBloco('SADC', ['ZA','AO','BW','MZ','NA','ZM','ZW','MW','LS','SZ','MG','CD','TZ'])">SADC</button>
+                        <button onclick="destacarBloco('CEDEAO', ['NG','GH','CI','SN','ML','NE','BF','TG','BJ','LR','SL','GN','GW','GM'])">CEDEAO</button>
+                        <button onclick="destacarBloco('EAC', ['KE','TZ','UG','RW','BI','SS','CD','SO'])">EAC</button>
+                        
+                        <button onclick="resetarMapa()" class="btn-limpar" data-i18n="map_btn_clear">Limpar</button>
+                    </div>
+                    <div id="svg-container"></div>
+                </div>
 
-            <!-- Aqui ficará o SVG da África -->
-            <div id="svg-container"></div>
-        </div>
+                <!-- Lado Direito: Painel de Informações -->
+                <div class="info-section">
+                    <div class="country-info">
+                        <h2 id="country-name" class="card-title" data-i18n="map_hover">Passe o mouse ou clique</h2>
 
-        <!-- LADO DIREITO: Painel de Informações e Gráficos -->
-        <div class="info-section">
-            <div class="country-info">
-                <h2 id="country-name" class="card-title">Passe o mouse ou clique</h2>
+                        <div class="stats-container">
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <span class="stat-icon">👥</span>
+                                    <span class="stat-label" data-i18n="map_pop">População</span>
+                                </div>
+                                <p id="population" class="stat-value">—</p>
+                            </div>
 
-                <div class="stats-container">
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <span class="stat-icon">👥</span>
-                            <span class="stat-label">População</span>
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <span class="stat-icon">🎂</span>
+                                    <span class="stat-label" data-i18n="map_age">Idade Média</span>
+                                </div>
+                                <p id="age" class="stat-value">—</p>
+                            </div>
                         </div>
-                        <p id="population" class="stat-value">—</p>
-                    </div>
 
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <span class="stat-icon">🎂</span>
-                            <span class="stat-label">Idade Média</span>
+                        <div class="insight-box">
+                            <div class="stat-header">
+                                <span class="stat-icon">📈</span>
+                                <span class="stat-label" data-i18n="map_perspective">Perspectiva</span>
+                            </div>
+                            <p id="future" class="insight-text" data-i18n="map_desc">Selecione um país ou bloco para visualizar os dados e projeções econômicas da região.</p>
                         </div>
-                        <p id="age" class="stat-value">—</p>
+
+                        <!-- Card Conexão Brasil-África no lugar correto (Painel Direito) -->
+                        <div class="brazil-box">
+                            <div class="stat-header">
+                                <span class="stat-icon">🇧🇷🤝🌍</span>
+                                <span class="stat-label" data-i18n="map_brazil_title">Conexão Brasil-África</span>
+                            </div>
+                            <p id="brazil-connection" class="insight-text" data-i18n="map_brazil_desc">Selecione uma região para descobrir os laços diplomáticos, comerciais e culturais com o Brasil.</p>
+                        </div>
+
+                        <div style="position: relative; height: 220px; width: 100%; margin-top: 25px;">
+                            <canvas id="popGrafico"></canvas>
+                        </div>
+                        <div style="position: relative; height: 220px; width: 100%; margin-top: 30px;">
+                            <canvas id="pibGrafico"></canvas>
+                        </div>
                     </div>
                 </div>
-
-                <div class="insight-box">
-                    <div class="stat-header">
-                        <span class="stat-icon">📈</span>
-                        <span class="stat-label">Perspectiva</span>
-                    </div>
-                    <p id="future" class="insight-text">Selecione um país ou bloco para visualizar os dados e projeções econômicas da região.</p>
-                </div>
-
-                <div style="position: relative; height: 220px; width: 100%; margin-top: 25px;">
-                    <canvas id="popGrafico"></canvas>
-                </div>
-                <div style="position: relative; height: 220px; width: 100%; margin-top: 30px;">
-                    <canvas id="pibGrafico"></canvas>
-                </div>
+                
             </div>
-        </div>
+        </section>
 
-    </div>
-</section>
-
-        <section id="contato" class="section-padding bg-light">
+        <!-- ==========================================
+             CONTATO
+             ========================================== -->
+        <section id="contato" class="section-padding">
             <div class="container">
                 <div class="contact-wrapper">
                     <div class="contact-header">
-                        <h2>Fale Conosco</h2>
-                        <p>Tem alguma dúvida, proposta ou deseja colaborar com nosso projeto? Envie uma mensagem.</p>
+                        <h2 data-i18n="contact_title">FALE CONOSCO</h2>
+                        <p data-i18n="contact_desc">Tem alguma dúvida, proposta ou deseja colaborar com nosso projeto? Envie uma mensagem.</p>
                     </div>
-                    
-                    <form class="contact-form">
-                        <!-- Nome e Sobrenome lado a lado -->
+
+                    <form id="form-contato" class="contact-form" name="contato" method="POST" data-netlify="true">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="name">Nome <span class="required">*</span></label>
-                                <input type="text" id="name" placeholder="Digite seu nome" required>
+                                <label for="nome"><span data-i18n="form_name">Nome</span> <span class="required">*</span></label>
+                                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
                             </div>
                             <div class="form-group">
-                                <label for="surname">Sobrenome <span class="required">*</span></label>
-                                <input type="text" id="surname" placeholder="Digite seu sobrenome" required>
+                                <label for="sobrenome"><span data-i18n="form_lastname">Sobrenome</span> <span class="required">*</span></label>
+                                <input type="text" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome" required>
                             </div>
                         </div>
 
-                        <!-- E-mail e LinkedIn lado a lado -->
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="email">E-mail corporativo <span class="required">*</span></label>
-                                <input type="email" id="email" placeholder="seu@email.com" required>
+                                <label for="email"><span data-i18n="form_email">E-mail Corporativo</span> <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
                             </div>
                             <div class="form-group">
                                 <label for="linkedin">LinkedIn</label>
-                                <input type="text" id="linkedin" placeholder="URL do seu perfil">
+                                <input type="url" id="linkedin" name="linkedin" placeholder="URL do seu perfil">
                             </div>
                         </div>
 
-                        <!-- Mensagem ocupa a linha toda -->
                         <div class="form-group">
-                            <label for="message">Mensagem <span class="required">*</span></label>
-                            <textarea id="message" placeholder="Como podemos ajudar?" rows="5" required></textarea>
+                            <label for="mensagem"><span data-i18n="form_msg">Mensagem</span> <span class="required">*</span></label>
+                            <textarea id="mensagem" name="mensagem" rows="5" placeholder="Como podemos ajudar?" required></textarea>
                         </div>
-                        
-                        <button type="submit" class="btn-submit">ENVIAR MENSAGEM</button>
+
+                        <button type="submit" id="btn-enviar" class="btn-submit" data-i18n="form_btn">ENVIAR MENSAGEM</button>
+                        <div id="form-feedback" class="feedback-msg"></div>
                     </form>
                 </div>
             </div>
-        </section>
         </section>
     </main>
 
     <footer class="main-footer">
         <div class="container footer-container">
-            <p>&copy; 2026 Beyond Africa Grup New Generation. Todos os direitos reservados.</p>
+            <p data-i18n="footer_rights">&copy; 2026 Beyond Africa Group New Generation. Todos os direitos reservados.</p>
             <div class="footer-info">
                 <p>contato@seuprojeto.org</p>
                 <p>+55 (11) 99999-0000</p>
